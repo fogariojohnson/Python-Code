@@ -200,14 +200,16 @@ def movie_statistics():
     print(f"Median rating: {median_ratings}")
 
     # Find the best movies
-    max_title = max(movies, key=movies.get)
-    max_rating = movies[max_title]
-    print(f"Best movie: {max_title}: {max_rating} ")
+    max_rating = max(movies.values())
+    for title, rating in movies.items():
+        if movies[title] == max_rating:
+            print(f"Best movie: {title}: {rating} ")
 
     # Find the worst movies
-    min_title = min(movies, key=movies.get)
-    min_rating = movies[min_title]
-    print(f"Worst movie: {min_title}: {min_rating}")
+    min_rating = min(movies.values())
+    for title, rating in movies.items():
+        if movies[title] == min_rating:
+            print(f"Worst movie: {title}: {rating} ")
     return movies
 
 
